@@ -30,7 +30,7 @@ else
     CRI_SOCK="/etc/vhive-cri/vhive-cri.sock"
 fi
 # Create kubelet service
-sudo sh -c 'cat <<EOF > /etc/systemd/system/kubelet.service.d/0-containerd.conf
+sudo sh -c 'cat <<EOF > /usr/lib/systemd/system/kubelet.service.d/0-containerd.conf
 [Service]                                                 
 Environment="KUBELET_EXTRA_ARGS=--container-runtime=remote --runtime-request-timeout=15m --container-runtime-endpoint=unix://'${CRI_SOCK}'"
 EOF'
